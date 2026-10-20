@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: frontend
 spec:
-  replicas: 2
+  replicas: {{ .Values.frontend.replicaCount }}
   selector:
     matchLabels:
       app: frontend
@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: harryp0tter/ems-frontend:latest
+          image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+          imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
           ports:
             - containerPort: 80
+          resources: {{- toYaml .Values.frontend.resources | nindent 12 }}
