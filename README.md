@@ -40,4 +40,4 @@ Open the application at:
 The local setup uses Docker Desktop and Jenkins on Windows. Moving the project to a Linux environment is a planned improvement.
 
 For problems and future improvements,
-see [DECISIONS.md](DECISIONS.md).
+see [DECISIONS.md](Decisions.md).
